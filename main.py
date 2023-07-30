@@ -44,6 +44,7 @@ while (True):
         gray, frame, coordinates = detect_face(frame)
 
         if coordinates is not None:
+            gray = gray[coordinates[0][1]:coordinates[0][1] + coordinates[0][3], coordinates[0][0]:coordinates[0][0] + coordinates[0][2]]
             process_img = preprocess(gray)
             idx, conf = detect_emotion(process_img)
 
